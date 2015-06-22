@@ -1,9 +1,26 @@
-# Project Skyhook v.0.67
+# libreATM #
+libreATM reuses code from the skyhookproject made by jonhannis and others and the responsive-ui fork made by dylanparker. Its main purpose its to have all the documentation needed to bring a skyhook hardware alive using a responsive UI and some basic features.
 
-Stay Tuned, it's only getting better! We'll have an update on our custom tablet launcher app soon. In the mean time, uninstall your current Full Screen 3.4 add-on by navigating to about:addons on your tablet browser then visit skyhook.sh to install the updated version (reboot required after install for context menu options to update correctly)
+This code and documentation has not been thoroughly tested and has no official support from the Skyhook project or anyone else.
 
-Project Skyhook, The Open-Source Bitcoin ATM. By Open-Source we mean free as-in freedom and by Bitcoin ATM we mean Cash in, BTC out. We think of Skyhook as a vending machine. However, to avoid confusion we've started calling it a Bitcoin ATM.
+## Features ##
+* **Full documentation** to implement it *from scratch* on the raspberry *and* the tablet.
+* dylanparker's responsive-UI.
+* Automatic power ON (raspberry *and* tablet) when AC plug is connected.
+* Automatic tablet power off when AC plug is disconnected.
+* Clean raspberry shutdown, no more SD corruption/failed boot.
+* Power ON and clean shutdown with the ATM door closed.
 
+**WARNING:** libreATM uses 2 "free" android apps that are not software libre (Kiosk and AutoPowerOff)
 
+## Known Bugs ##
 
+### UI ###
+* Infinite loading circle.
+* Cancel button does not appear complete.
+* User can choose from several languages but English is the only one that works.
 
+### System ###
+* Automatic USB tethering on boot does not work yet.
+
+I've worked more than 45 hours on this. If you find it useful send any amount to [14qpgjQmWSnHbrZKLTJCvhX9sCpRgr1Hw2](https://blockchain.info/address/14qpgjQmWSnHbrZKLTJCvhX9sCpRgr1Hw2).

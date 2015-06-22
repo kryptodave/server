@@ -1,3 +1,5 @@
+
+CONNECT skyhook;
 CREATE TABLE IF NOT EXISTS `purchases` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 
@@ -14,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `purchases` (
 	`bitcoin_price` DECIMAL(16, 4) NOT NULL,
 
 -- The amount of Bitcoin that can be purchased in relation to the amount of currency entered
-	`bitcoin_amount` DECIMAL(16, 8) NOT NULL DEFAULT 0.0000,
+	`bitcoin_amount` DECIMAL(8, 8) NOT NULL DEFAULT 0.0000,
 
 -- The Bitcoin network TXID that establishes the transaction has happened
 	`txid` VARCHAR(64) NULL DEFAULT NULL,
@@ -42,5 +44,44 @@ CREATE TABLE IF NOT EXISTS `purchases` (
 	`email_to_notify` TEXT NULL DEFAULT NULL,
 
 	PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `bills` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+
+-- This should never be set in our PHP, let the database handle it
+	`entered_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+-- The numeric denomination that was entered
+	`denomination` DECIMAL(16, 4) NOT NULL DEFAULT 0.0000,
+
+-- The purchase this bill was entered for
+	`purchase_id` INT(11) NOT NULL,
+	
+	PRIMARY KEY `this_id` (`id`), 
+	KEY `purchase_ind` (`purchase_id`),
+	FOREIGN KEY (`purchase_id`)
+    REFERENCES `purchases`(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
+
+CREATE TABLE IF NOT EXISTS `jobs` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+
+-- This should never be set in our PHP, let the database handle it
+	`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+-- Name of the handler class that will process the job
+	`handler` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+
+-- The current status of the job
+	`status` ENUM('queued', 'processing', 'finished') NOT NULL,
+
+-- JSON formatted message contents
+	`message` TEXT NOT NULL,
+
+	PRIMARY KEY `this_id` (`id`),
+	KEY `created_at_ind` (`created_at`),
+	KEY `status_ind` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
+
 
