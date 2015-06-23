@@ -1,7 +1,6 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta http-equiv="refresh" content="25;url=http://192.168.42.45/off" />
   <title>Shutdown</title>
 
 <script type='text/javascript'>
