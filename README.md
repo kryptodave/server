@@ -23,4 +23,4 @@ This code and documentation has not been thoroughly tested and has no official s
 ### System ###
 * Automatic USB tethering on boot does not work yet.
 
-I've worked more than 45 hours on this. If you find it useful send any amount to [14qpgjQmWSnHbrZKLTJCvhX9sCpRgr1Hw2](https://blockchain.info/address/14qpgjQmWSnHbrZKLTJCvhX9sCpRgr1Hw2).
+I've worked more than 45 hours on this. If you find it useful send any amount to [1NmGuvMJnQ393oz9AS7tBAvJYNNQz5TfBC](https://blockchain.info/address/1NmGuvMJnQ393oz9AS7tBAvJYNNQz5TfBC).
