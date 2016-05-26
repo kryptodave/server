@@ -23,11 +23,11 @@ class BTCMarkets implements PricingProvider {
 			)
 		);
 		
-		if (!isset($ticker['lastPrice'])) {
+		if (!isset($ticker['bestAsk'])) {
 			throw new \UnexpectedValueException('Could not retrieve pricing data.');
 		}
 		
-		return new Amount($ticker['lastPrice']);
+		return new Amount($ticker['bestAsk']);
 	}
 }
 
