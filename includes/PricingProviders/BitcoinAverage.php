@@ -23,11 +23,11 @@ class BitcoinAverage implements PricingProvider {
 			)
 		);
 		
-		if (!isset($ticker['last'])) {
+		if (!isset($ticker['ask'])) {
 			throw new \UnexpectedValueException('Could not retrieve pricing data.');
 		}
 		
-		return new Amount($ticker['last']);
+		return new Amount($ticker['ask']);
 	}
 }
 
