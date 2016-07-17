@@ -12,11 +12,11 @@ class BTCE implements PricingProvider {
 	use SimplePricer;
 
 	private function fetchPrice($ticker) {
-		if (!isset($ticker['ticker']['last'])) {
+		if (!isset($ticker['ticker']['buy'])) {
 			throw new \UnexpectedValueException('Could not retrieve pricing data.');
 		}
 		
-		return new Amount($ticker['ticker']['last']);
+		return new Amount($ticker['ticker']['buy']);
 	}
 	
 	private function getTickerURL() {
